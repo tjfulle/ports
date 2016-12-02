@@ -46,7 +46,7 @@ configure.args-append \
                     -DGKLIB_PATH=${worksrcpath}/GKlib \
                     -DSHARED=1
 
-default_variants +longindex +double +openmp
+default_variants +longindex +openmp
 
 if {[variant_isset debug]} {
     # just to be safe
@@ -72,10 +72,6 @@ variant openmp description {Enable openmp support} {
 
 variant longindex description {Build with index type being long} {
   configure.args-append       -DMETIS_USE_LONGINDEX=1
-}
-
-variant single description {Build with single precision} {
-  configure.args-delete       -DMETIS_USE_DOUBLEPRECISION=1
 }
 
 variant double description {Build with double precision} {

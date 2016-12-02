@@ -1,0 +1,33 @@
+--- src/utils/ncmpidump/Makefile.in.orig	2016-12-01 10:01:56.000000000 -0700
++++ src/utils/ncmpidump/Makefile.in	2016-12-01 10:05:55.000000000 -0700
+@@ -38,7 +38,7 @@
+ all:		$(PROGRAM)
+ 
+ $(PROGRAM):	$(LIBRARY) $(OBJS)
+-	$(LINK.c) $(OBJS) $(LDFLAGS) $(LIBS) 
++	$(LINK.c) $(OBJS) $(LDFLAGS) $(LIBS)
+ 
+ test:		$(PROGRAM) FORCE
+ 	$(NCGEN) -b $(srcdir)/test0.cdl -o `pwd`/test0.nc
+@@ -49,15 +49,15 @@
+ 	     echo "*** $(PROGRAM) test successful ***"
+ 
+ install: $(PROGRAM) $(MANUAL)
+-	$(INSTALL) -d -m 755 $(MANDIR)/man1
+-	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(MANDIR)/man1/$(MANUAL)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(MANDIR)/man1
++	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
+ 
+-	$(INSTALL) -d $(BINDIR)
+-	$(INSTALL) -m 755 $(PROGRAM) $(BINDIR)/$(PROGRAM)
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) -m 755 $(PROGRAM) $(DESTDIR)$(BINDIR)/$(PROGRAM)
+ 
+ uninstall:
+-	$(RM) -f $(BINDIR)/$(PROGRAM)
+-	$(RM) -f $(MANDIR)/man1/$(MANUAL)
++	$(RM) -f $(DESTDIR)$(BINDIR)/$(PROGRAM)
++	$(RM) -f $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
+ 
+ $(PROGRAM)_oc : $(C_SOURCES)
+ 	#setopt primary_language C

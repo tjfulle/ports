@@ -1,0 +1,42 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem                  1.0
+PortGroup                   mpi 1.0
+
+name                        pnetcdf
+maintainers                 tjfulle
+platforms                   darwin
+categories                  science
+license                     Permissive
+version                     1.7.0
+master_sites                http://cucis.ece.northwestern.edu/projects/PnetCDF/Release
+distname                    parallel-netcdf-${version}
+
+patchfiles                  patch-rules.make.diff \
+                            patch-man-Makefile.in.diff \
+                            patch-src-lib-Makefile.in.diff \
+                            patch-src-libcxx-Makefile.in.diff \
+                            patch-src-libf-Makefile.in.diff \
+                            patch-src-libf90-Makefile.in.diff \
+                            patch-src-utils-ncmpidump-Makefile.in.diff \
+                            patch-src-utils-ncoffsets-Makefile.in.diff \
+                            patch-src-utils-Makefile.in.diff \
+                            patch-src-utils-ncmpidiff-Makefile.in.diff \
+                            patch-src-utils-ncmpivalid-Makefile.in.diff \
+                            patch-src-utils-ncmpigen-Makefile.in.diff \
+                            patch-src-utils-pnetcdf_version-Makefile.in.diff
+
+description                 libraries for parallel netcdf
+long_description \
+    Parallel netCDF is a parallel I/O library for accessing files in netCDF format. NetCDF is a \
+    software package popular in scientific community for storing data files. It consists of a set of \
+    application programming interfaces (API) and a portable file format. Parallel netCDF is built on \
+    top of MPI-IO to guarantee its portability and high performance.
+
+homepage            http://cucis.ece.northwestern.edu/projects/PnetCDF/
+checksums           rmd160  91cdf52bc0f2f67a875ddec2f3e91bd852d9f8e4 \
+                    sha256  52f0d106c470a843c6176318141f74a21e6ece3f70ee8fe261c6b93e35f70a94
+
+compilers.choose            cc cpp
+mpi.setup

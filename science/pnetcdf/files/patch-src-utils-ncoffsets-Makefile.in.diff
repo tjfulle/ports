@@ -1,0 +1,23 @@
+--- src/utils/ncoffsets/Makefile.in.orig	2016-12-01 10:02:23.000000000 -0700
++++ src/utils/ncoffsets/Makefile.in	2016-12-01 10:04:17.000000000 -0700
+@@ -25,14 +25,13 @@
+ 	$(SEQ_CC) -o $@ $<
+ 
+ install: $(PROGRAM) $(MANUAL)
+-	$(INSTALL) -d -m 755 $(MANDIR)/man1
+-	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(MANDIR)/man1/$(MANUAL)
+-	$(INSTALL) -d $(BINDIR)
+-	$(INSTALL) -m 755 $(PROGRAM) $(BINDIR)/$(PROGRAM)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(MANDIR)/man1
++	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) -m 755 $(PROGRAM) $(DESTDIR)$(BINDIR)/$(PROGRAM)
+ 
+ uninstall:
+-	$(RM) -f $(BINDIR)/$(PROGRAM)
+-	$(RM) -f $(MANDIR)/man1/$(MANUAL)
++	$(RM) -f $(DESTDIR)$(BINDIR)/$(PROGRAM)
++	$(RM) -f $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
+ 
+ include $(srcdir)/../../../rules.make
+-

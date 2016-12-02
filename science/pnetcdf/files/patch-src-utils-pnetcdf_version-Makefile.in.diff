@@ -1,0 +1,23 @@
+--- src/utils/pnetcdf_version/Makefile.in.orig	2016-12-01 10:02:34.000000000 -0700
++++ src/utils/pnetcdf_version/Makefile.in	2016-12-01 10:03:54.000000000 -0700
+@@ -41,14 +41,14 @@
+ 	$(SEQ_CC) $(DEFS) -o $@ $<
+ 
+ install: $(PROGRAM) $(MANUAL)
+-	$(INSTALL) -d -m 755 $(MANDIR)/man1
+-	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(MANDIR)/man1/$(MANUAL)
+-	$(INSTALL) -d $(BINDIR)
+-	$(INSTALL) -m 755 $(PROGRAM) $(BINDIR)/$(PROGRAM)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(MANDIR)/man1
++	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) -m 755 $(PROGRAM) $(DESTDIR)$(BINDIR)/$(PROGRAM)
+ 
+ uninstall:
+-	$(RM) -f $(BINDIR)/$(PROGRAM)
+-	$(RM) -f $(MANDIR)/man1/$(MANUAL)
++	$(RM) -f $(DESTDIR)$(BINDIR)/$(PROGRAM)
++	$(RM) -f $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
+ 
+ include $(srcdir)/../../../rules.make
+ include $(srcdir)/depend

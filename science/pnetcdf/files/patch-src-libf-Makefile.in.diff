@@ -1,0 +1,16 @@
+--- src/libf/Makefile.in.orig	2016-12-01 09:58:00.000000000 -0700
++++ src/libf/Makefile.in	2016-12-01 09:58:32.000000000 -0700
+@@ -394,10 +394,10 @@
+ 	$(SED) -e "s%/\*%!%g" -e "s%\*/%%g" $< > $@
+ 
+ install:
+-	$(INSTALL) -d -m 755 $(INCDIR)
+-	$(INSTALL_DATA) pnetcdf.inc $(INCDIR)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(INCDIR)
++	$(INSTALL_DATA) pnetcdf.inc $(DESTDIR)$(INCDIR)
+ 
+ uninstall:
+-	$(RM) -f $(INCDIR)/pnetcdf.inc
++	$(RM) -f $(DESTDIR)$(INCDIR)/pnetcdf.inc
+ 
+ include $(srcdir)/../../rules.make

@@ -1,0 +1,29 @@
+--- src/lib/Makefile.in.orig	2016-12-01 09:52:51.000000000 -0700
++++ src/lib/Makefile.in	2016-12-01 09:53:57.000000000 -0700
+@@ -93,17 +93,17 @@
+ 	$(RANLIB) $(LIBRARY)
+ 
+ install: $(LIBRARY)
+-	$(INSTALL) -d -m 755 $(LIBDIR)
+-	$(INSTALL_DATA) $(LIBRARY) $(LIBDIR)/$(LIBRARY)
+-	$(INSTALL) -d -m 755 $(INCDIR)
+-	$(INSTALL_DATA) $(HEADER) $(INCDIR)/$(HEADER)
+-	$(INSTALL) -d -m 755 $(LIBDIR)/pkgconfig
+-	$(INSTALL_DATA) $(PKGCONFIG) $(LIBDIR)/pkgconfig/$(PKGCONFIG)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(LIBDIR)
++	$(INSTALL_DATA) $(LIBRARY) $(DESTDIR)$(LIBDIR)/$(LIBRARY)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(INCDIR)
++	$(INSTALL_DATA) $(HEADER) $(DESTDIR)$(INCDIR)/$(HEADER)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(LIBDIR)/pkgconfig
++	$(INSTALL_DATA) $(PKGCONFIG) $(DESTDIR)$(LIBDIR)/pkgconfig/$(PKGCONFIG)
+ 
+ uninstall:
+-	$(RM) -f $(LIBDIR)/pkgconfig/$(PKGCONFIG)
+-	$(RM) -f $(LIBDIR)/$(LIBRARY)
+-	$(RM) -f $(INCDIR)/$(HEADER)
++	$(RM) -f $(DESTDIR)$(LIBDIR)/pkgconfig/$(PKGCONFIG)
++	$(RM) -f $(DESTDIR)$(LIBDIR)/$(LIBRARY)
++	$(RM) -f $(DESTDIR)$(INCDIR)/$(HEADER)
+ 
+ include $(srcdir)/../../rules.make
+ 

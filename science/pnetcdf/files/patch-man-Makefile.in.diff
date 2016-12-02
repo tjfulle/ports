@@ -1,0 +1,24 @@
+--- man/Makefile.in.orig	2016-12-01 10:24:43.000000000 -0700
++++ man/Makefile.in	2016-12-01 10:25:26.000000000 -0700
+@@ -43,18 +43,18 @@
+ test:
+ 
+ install: $(MANUAL)
+-	$(INSTALL) -d -m 755 $(MANDIR)/man3
++	$(INSTALL) -d -m 755 $(DESTDIR)$(MANDIR)/man3
+ 	@for i in $(MANUAL) ; do ( \
+ 	    if test -f $(srcdir)/$$i; then file=$(srcdir)/$$i; \
+ 	    else file=$$i; fi; \
+ 	    fn=`basename $$i` ; \
+-	    $(INSTALL_DATA) $$file $(MANDIR)/man3/$$fn \
++	    $(INSTALL_DATA) $$file $(DESTDIR)$(MANDIR)/man3/$$fn \
+ 	; ) ; done
+ 
+ uninstall:
+ 	@for i in $(MANUAL) ; do ( \
+ 	    fn=`basename $$i` ; \
+-	    $(RM) -f $(MANDIR)/man3/$$fn \
++	    $(RM) -f $(DESTDIR)$(MANDIR)/man3/$$fn \
+ 	; ) ; done
+ 
+ include $(srcdir)/../rules.make

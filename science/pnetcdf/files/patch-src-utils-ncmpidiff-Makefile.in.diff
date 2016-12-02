@@ -1,0 +1,28 @@
+--- src/utils/ncmpidiff/Makefile.in.orig	2016-12-01 10:01:42.000000000 -0700
++++ src/utils/ncmpidiff/Makefile.in	2016-12-01 10:03:17.000000000 -0700
+@@ -35,18 +35,18 @@
+ all:		$(PROGRAM)
+ 
+ $(PROGRAM):	$(LIBRARY) $(OBJS)
+-	$(LINK.c) $(OBJS) $(LDFLAGS) $(LIBS) 
++	$(LINK.c) $(OBJS) $(LDFLAGS) $(LIBS)
+ 
+ install: $(PROGRAM) $(MANUAL)
+-	$(INSTALL) -d -m 755 $(MANDIR)/man1
+-	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(MANDIR)/man1/$(MANUAL)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(MANDIR)/man1
++	$(INSTALL_DATA) $(srcdir)/$(MANUAL) $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
+ 
+-	$(INSTALL) -d $(BINDIR)
+-	$(INSTALL) -m 755 $(PROGRAM) $(BINDIR)/$(PROGRAM)
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) -m 755 $(PROGRAM) $(DESTDIR)$(BINDIR)/$(PROGRAM)
+ 
+ uninstall:
+-	$(RM) -f $(BINDIR)/$(PROGRAM)
+-	$(RM) -f $(MANDIR)/man1/$(MANUAL)
++	$(RM) -f $(DESTDIR)$(BINDIR)/$(PROGRAM)
++	$(RM) -f $(DESTDIR)$(MANDIR)/man1/$(MANUAL)
+ 
+ $(PROGRAM)_oc : $(C_SOURCES)
+ 	#setopt primary_language C

@@ -1,0 +1,17 @@
+--- src/libf90/Makefile.in.orig	2016-02-03 17:18:26.000000000 -0700
++++ src/libf90/Makefile.in	2016-12-01 09:59:54.000000000 -0700
+@@ -74,11 +74,10 @@
+ $(PNETCDF_MOD): $(SRCS)
+ 
+ install: $(PNETCDF_MOD)
+-	$(INSTALL) -d -m 755 $(INCDIR)
+-	$(INSTALL_DATA) $(PNETCDF_MOD) $(INCDIR)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(INCDIR)
++	$(INSTALL_DATA) $(PNETCDF_MOD) $(DESTDIR)$(INCDIR)
+ 
+ uninstall:
+-	$(RM) -f $(INCDIR)/$(PNETCDF_MOD)
++	$(RM) -f $(DESTDIR)$(INCDIR)/$(PNETCDF_MOD)
+ 
+ include $(srcdir)/../../rules.make
+-

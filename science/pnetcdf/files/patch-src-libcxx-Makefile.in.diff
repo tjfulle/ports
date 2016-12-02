@@ -1,0 +1,18 @@
+--- src/libcxx/Makefile.in.orig	2016-12-01 09:55:23.000000000 -0700
++++ src/libcxx/Makefile.in	2016-12-01 09:55:50.000000000 -0700
+@@ -72,12 +72,11 @@
+ 	) ; done
+ 
+ install:
+-	$(INSTALL) -d -m 755 $(INCDIR)
+-	$(INSTALL_DATA) $(CXX_HEADER) $(INCDIR)
++	$(INSTALL) -d -m 755 $(DESTDIR)$(INCDIR)
++	$(INSTALL_DATA) $(CXX_HEADER) $(DESTDIR)$(INCDIR)
+ 
+ uninstall:
+-	$(RM) -f $(INCDIR)/$(CXX_HEADER)
++	$(RM) -f $(DESTDIR)$(INCDIR)/$(CXX_HEADER)
+ 
+ include $(srcdir)/depend
+ include $(srcdir)/../../rules.make
+-

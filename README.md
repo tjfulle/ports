@@ -55,7 +55,7 @@ file:///Users/user/Documents/ports
 Now add the ports to the port index:
 
 ```sh
-cd /path/to/ports
+cd /Users/user/Documents/ports
 /opt/local/bin/portindex
 ```
 

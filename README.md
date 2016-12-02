@@ -27,9 +27,9 @@ in one place.
 * `science/hdf5` 1.10: Fixes for fortran and parallel variants
 * `science/pnetcdf` 1.7.0: Build of parallel-netcdf, needed for `+openmpi` variant of `netcdf`
 * `science/hdf5-18` 1.8.17: Fixes for fortran and parallel variants to be
-  consistent with netcdf. Other options as required by seacas are turned on by
+  consistent with netcdf. Other options as required by [seacas](https://github.com/gsjaardema/seacas) are turned on by
   default.
-* `science/netcdf` 4.4.1: Modified to properly build parallel netcdf for `+openmpi` variant
+* `science/netcdf` 4.4.1: Modified to properly build parallel netcdf for `+openmpi` variant.  `NC_MAX_VARS` and `NC_MAX_DIMS` modified for use in [seacas](https://github.com/gsjaardema/seacas)
 * `science/scotch`: `+longindex` variant turned on by default to be consistent with metis
 
 # Installation

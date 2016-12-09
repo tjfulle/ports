@@ -46,7 +46,7 @@ configure.args-append \
                     -DGKLIB_PATH=${worksrcpath}/GKlib \
                     -DSHARED=1
 
-default_variants +longindex +openmp
+default_variants +double +longindex +openmp
 
 if {[variant_isset debug]} {
     # just to be safe

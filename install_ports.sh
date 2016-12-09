@@ -8,7 +8,7 @@ port=/opt/local/bin/port
 compiler_vendor=gcc
 compiler_major_version=6
 compiler_minor_version=2
-if [ $compiler == clang ]; then
+if [ $compiler_vendor == clang ]; then
     compiler=$compiler_vendor$compiler_major_version$compiler_minor_version
 else
     compiler=$compiler_vendor$compiler_major_version

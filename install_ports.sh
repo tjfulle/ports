@@ -7,7 +7,7 @@ port=/opt/local/bin/port
 # If clang, the compiler name needs to be modified
 compiler_vendor=gcc
 compiler_major_version=6
-compiler_minor_version=2
+compiler_minor_version=3
 if [ $compiler_vendor == clang ]; then
     compiler=$compiler_vendor$compiler_major_version$compiler_minor_version
 else

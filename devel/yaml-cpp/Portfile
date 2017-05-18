@@ -1,0 +1,40 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           cmake 1.0
+PortGroup           compilers 1.0
+
+name                yaml-cpp
+version             0.5.3
+maintainers         the-huck.com:patrick openmaintainer
+
+categories          devel
+description         yaml-cpp is a YAML parser and emitter in C++ written around the YAML 1.2 spec
+long_description    ${description}
+
+platforms           darwin
+
+homepage            http://jbeder.github.io/yaml-cpp/
+master_sites        https://github.com/jbeder/yaml-cpp/archive
+distname            release-${version}
+
+checksums           md5     79e61c59d39c94cbc8b76b5446b6d1d3 \
+                    sha1    e06aabd2432ab46079e2c0a85ed5a7e8c4371074 \
+                    rmd160  4f97c3fb570e4fea8b587fd4a058e7312e12d787
+
+compilers.choose    cc cxx cpp
+compilers.setup
+
+depends_build-append port:boost
+
+default_variants +shared
+
+configure.args-append -DYAML_CPP_BUILD_TOOLS:BOOL=OFF
+
+variant shared description {Enable shared libraries} {
+    configure.args-append -DBUILD_SHARED_LIBS:BOOL=ON
+}
+
+cmake.out_of_source yes
+
+use_zip             yes

@@ -14,6 +14,10 @@ in one place.
 * `devel/boost` 1.58.0: At the time of this writing, boost provided by MacPorts is at
   version 1.59.0. A bug in that version prevents using the variants +openmpi
   -no_single, as needed by Trilinos.
+* devel/yaml-cpp 0.5.3: The default version of yaml-cpp in the Macports
+  repository is 0.5.1.  This port is still not fully automated.  It *should* get
+  the right tarball from github.  But, it does not.  Consequently, a zip from
+  from github must be downloaded an placed in /opt/local/var/macports/distfiles/yaml-cpp.  The checksums in the Portfile will almost assuredly need to be modified to reflect the checksums of the file downloaded.
 
 * `math/SuiteSparse` 4.2.1: Port not modified.
 * `math/metis` 1.51.0: Port modified to build with `+longindex`, `+double`, and

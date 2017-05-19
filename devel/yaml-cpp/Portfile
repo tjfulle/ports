@@ -2,7 +2,7 @@
 
 PortSystem          1.0
 PortGroup           cmake 1.0
-PortGroup           compilers 1.0
+PortGroup           mpi 1.0
 
 name                yaml-cpp
 version             0.5.3
@@ -24,10 +24,11 @@ checksums           md5     79e61c59d39c94cbc8b76b5446b6d1d3 \
 
 compilers.choose    cc cxx cpp
 compilers.setup
+mpi.setup
 
 depends_build-append port:boost
 
-default_variants +shared
+#default_variants +shared
 
 configure.args-append -DYAML_CPP_BUILD_TOOLS:BOOL=OFF
 

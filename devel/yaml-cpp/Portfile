@@ -15,12 +15,13 @@ long_description    ${description}
 platforms           darwin
 
 homepage            http://jbeder.github.io/yaml-cpp/
-master_sites        https://github.com/jbeder/yaml-cpp/archive
-distname            release-${version}
+master_sites        https://github.com/jbeder/yaml-cpp/releases
+distname            yaml-cpp-release-${version}
 
-checksums           md5     79e61c59d39c94cbc8b76b5446b6d1d3 \
-                    sha1    e06aabd2432ab46079e2c0a85ed5a7e8c4371074 \
-                    rmd160  4f97c3fb570e4fea8b587fd4a058e7312e12d787
+checksums           md5     2bc341aeb609a557c51f3d1f714d81a0 \
+                    sha1    895f67d9f6d1ef5ea1f7bea80808ac7214051d52 \
+                    rmd160  6b1399c55e8cb117037c5a46e5a9c7fd12fe4072 \
+                    sha256  6792cc74d58e67cc07707492e62d4fcb979663bed9c550cf4a1ce463d4d7ce68
 
 compilers.choose    cc cxx cpp
 compilers.setup
